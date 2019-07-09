@@ -1,3 +1,3 @@
 class SportSerializer < ActiveModel::Serializer
-  attributes :id, :sport, :location, :date
+  attributes :id, :label, :location, :date
 end
