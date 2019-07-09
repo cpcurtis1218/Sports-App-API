@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_223414) do
   end
 
   create_table "sports", force: :cascade do |t|
-    t.string "sport", null: false
+    t.string "label", null: false
     t.string "location"
     t.string "date"
     t.datetime "created_at", null: false
