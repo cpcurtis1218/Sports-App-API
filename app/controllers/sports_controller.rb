@@ -39,13 +39,14 @@ class SportsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sport
-      @sport = Sport.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def sport_params
-      params.require(:sport).permit(:name, :location, :date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sport
+    @sport = Sport.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def sport_params
+    params.require(:sport).permit(:label, :location, :date)
+  end
 end
