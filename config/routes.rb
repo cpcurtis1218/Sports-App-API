@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # RESTful routes for sports, dont use new or edit, instead we have create and
-  # update
+  # RESTful routes for sports and groups, dont use new or edit, instead we have
+  # create and update
   resources :sports, except: %i[new edit]
+  resources :groups, except: %i[new edit]
   # RESTful routes
   resources :examples, except: %i[new edit]
 
