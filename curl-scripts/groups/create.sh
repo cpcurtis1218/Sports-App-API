@@ -10,7 +10,8 @@ curl "http://localhost:4741/groups" \
       "city": "'"${CITY}"'",
       "state": "'"${STATE}"'",
       "date": "'"${DATE}"'",
-      "time": "'"${TIME}"'"
+      "time": "'"${TIME}"'",
+      "about": "'"${ABOUT}"'"
     }
   }'
 
