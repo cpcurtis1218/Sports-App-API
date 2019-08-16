@@ -6,7 +6,7 @@ curl "http://localhost:4741/groups/${ID}" \
   --header "Content-Type: application/json" \
   --data '{
     "group": {
-      "sport": "'"${SPORT}"'"
+      "about": "'"${ABOUT}"'"
     }
   }'
 
