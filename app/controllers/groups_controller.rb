@@ -1,4 +1,4 @@
-class GroupsController < ApplicationController
+class GroupsController < OpenReadController
   before_action :set_group, only: [:show, :update, :destroy]
 
   # GET /groups
@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
 
   # POST /groups
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.build(group_params)
 
     if @group.save
       render json: @group, status: :created, location: @group
@@ -46,6 +46,6 @@ class GroupsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def group_params
-      params.require(:group).permit(:sport, :city, :state, :date, :time, :about)
+      params.require(:group).permit(:sport, :city, :state, :date, :time, :about, :user_id)
     end
 end
