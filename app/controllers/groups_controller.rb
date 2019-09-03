@@ -1,5 +1,6 @@
 class GroupsController < OpenReadController
-  before_action :set_group, only: [:show, :update, :destroy]
+  before_action :set_group, only: [:update, :destroy]
+  before_action :set_group_show, only: [:show]
 
   # GET /groups
   def index
@@ -39,13 +40,20 @@ class GroupsController < OpenReadController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_group
-      @group = Group.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def group_params
-      params.require(:group).permit(:sport, :city, :state, :date, :time, :about, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  # Set the group for update and delete where the user needs to be the creator
+  def set_group
+    @group = current_user.groups.find(params[:id])
+  end
+
+  # Set the group for any user to show group
+  def set_group_show
+    @group = Group.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def group_params
+    params.require(:group).permit(:sport, :city, :state, :date, :time, :about, :user_id)
+  end
 end
