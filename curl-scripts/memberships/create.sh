@@ -7,7 +7,6 @@ curl "http://localhost:4741/memberships" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "membership": {
-      "user_id": "'"${USERID}"'",
       "group_id": "'"${GROUPID}"'"
     }
   }'
