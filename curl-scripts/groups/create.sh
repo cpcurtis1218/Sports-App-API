@@ -12,7 +12,8 @@ curl "http://localhost:4741/groups" \
       "state": "'"${STATE}"'",
       "date": "'"${DATE}"'",
       "time": "'"${TIME}"'",
-      "about": "'"${ABOUT}"'"
+      "about": "'"${ABOUT}"'",
+      "user_id": "'"${USERID}"'"
     }
   }'
 
