@@ -44,7 +44,7 @@ class GroupsController < OpenReadController
   # Use callbacks to share common setup or constraints between actions.
   # Set the group for update and delete where the user needs to be the creator
   def set_group
-    @group = current_user.groups.find(params[:id])
+    @group = Group.find(params[:id])
   end
 
   # Set the group for any user to show group
