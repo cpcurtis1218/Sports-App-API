@@ -1,5 +1,6 @@
 class MembershipsController < ProtectedController
-  before_action :set_membership, only: [:show, :update, :destroy]
+  before_action :set_membership, only: :destroy
+  before_action :set_user, only: :show
 
   # GET /memberships
   def index
@@ -8,9 +9,10 @@ class MembershipsController < ProtectedController
     render json: @memberships
   end
 
+  # GET all memberships for a user, based on user_id
   # GET /memberships/1
   def show
-    render json: @membership
+    render json: @user
   end
 
   # POST /memberships
@@ -39,6 +41,11 @@ class MembershipsController < ProtectedController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_user
+      @user = User.find(params[:id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_membership
       @membership = current_user.memberships.find(params[:id])
