@@ -3,11 +3,11 @@ class MembershipsController < ProtectedController
   before_action :set_user, only: :show
 
   # GET /memberships
-  def index
-    @memberships = Membership.all
+  # def index
+  #   @memberships = Membership.all
 
-    render json: @memberships
-  end
+  #   render json: @memberships
+  # end
 
   # GET all memberships for a user, based on user_id
   # GET /memberships/1
@@ -27,13 +27,13 @@ class MembershipsController < ProtectedController
   end
 
   # PATCH/PUT /memberships/1
-  def update
-    if @membership.update(membership_params)
-      render json: @membership
-    else
-      render json: @membership.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if @membership.update(membership_params)
+  #     render json: @membership
+  #   else
+  #     render json: @membership.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /memberships/1
   def destroy
