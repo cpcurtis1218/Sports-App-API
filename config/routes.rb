@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # edit, instead we have create and update
   resources :sports, except: %i[new edit]
   resources :groups, except: %i[new edit]
-  resources :memberships, except: %i[new edit]
+  resources :memberships, except: %i[new edit patch]
   # RESTful routes
   resources :examples, except: %i[new edit]
 
